@@ -3,6 +3,7 @@
 ## Dependêncies 
 - NextJS
 - TailwindCss
+- auth0
 
 ## NextJS
 NextJS is a framework created by Zeit to build a page server-side rendering, apis, statics apps. To install write `npm install next react react-dom`, after in `package.json` write the following script: 
@@ -16,3 +17,6 @@ After to start the server write `npm run dev`, and to run in production build wi
 
 ## TailWindCss
 A layout library `npm install postcss-import postcss-preset-env tailwindcss`. To start tailwind is `npx tailwind init`
+
+## Auth0
+Auth0 is a tool to control auth, create an account in `https://auth0.com/`, and follow the steps.
