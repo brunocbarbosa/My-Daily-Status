@@ -7,6 +7,7 @@
 - firebase
 - GeoFirestore
 - axios
+- zeit
 
 ## NextJS
 NextJS is a framework created by Zeit to build a page server-side rendering, apis, statics apps. To install write `npm install next react react-dom`, after in `package.json` write the following script: 
@@ -29,3 +30,6 @@ Firebase is a NoSQL database from google, to install the dependence write in ter
 
 ## Geofirestore
 A Firebase lib to work with geolocation to instal write `npm install geofirestore`
+
+## Zeit 
+With Zeit you can upload your project to the network, create a account at `https://vercel.com/`. To install it dependence is `npm install -g now@latest`

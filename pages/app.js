@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import auth0 from '../lib/auth0';
 import router from 'next/router';
 import { db } from '../lib/db';
+import { distance } from '../lib/geo'
 
 export default function App(props){
     useEffect(() => {
@@ -17,17 +18,20 @@ export default function App(props){
     }
     return(
         <div>
-        <h1>APP</h1>
-        <table>
-            { props.checkins.map(checkin => {
-                return(
-                    <tr>
-                        { checkin.id }
-                    </tr>
-                )
-            }) }
-        </table>
-        <pre>{JSON.stringify(props, null, 2)}</pre>
+            <h1>Status próximos a você:</h1>
+            <table>
+                { props.checkins.map(checkin => {
+                    return(
+                        <tr>
+                            <td>{ checkin.id === props.user.sub && 'Seu status'}</td>
+                            <td>{ checkin.status }</td>
+                            <td>{ JSON.stringify(checkin.coords) }</td>
+                            <td>{ checkin.distance }</td>
+                        </tr>
+                    )
+                }) }
+            </table>
+        <pre>{/*JSON.stringify(props, null, 2)*/}</pre>
         </div>
     );
 }
@@ -67,7 +71,13 @@ export async function getServerSideProps({req, res}){
                     coords: {
                         lat: doc.data().coordinates.latitude,
                         long: doc.data().coordinates.longitude
-                    }
+                    },
+                    distance: distance(
+                        todaysData.coordinates.latitude, //-22.202921, 
+                        todaysData.coordinates.longitude, //-45.943668, 
+                        doc.data().coordinates.latitude, 
+                        doc.data().coordinates.longitude
+                    ).toFixed(2)
                 })
             })
 
