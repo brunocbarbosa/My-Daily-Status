@@ -40,7 +40,6 @@ export default function CreateStatus(){
     const save = async() => {
         await axios.post('/api/save-status', dados)
     }
-
     return(
         <div>
             <h1>Create Status</h1>

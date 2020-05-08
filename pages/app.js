@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import auth0 from '../lib/auth0';
 import router from 'next/router';
 import { db } from '../lib/db';
-import { distance } from '../lib/geo'
+import { distance } from '../lib/geo';
 
 export default function App(props){
     useEffect(() => {
@@ -16,6 +16,7 @@ export default function App(props){
     if(!props.isAuth || props.forceCreate){
         return null;
     }
+
     return(
         <div>
             <h1>Status próximos a você:</h1>
