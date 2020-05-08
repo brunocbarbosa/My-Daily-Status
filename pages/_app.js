@@ -6,7 +6,6 @@ import Footer from '../components/Footer'
 export default function App({ Component, pageProps }){
     return(
         <div>
-            <Header />
             <div className="min-h-screen container mx-auto">
                 <Component {...pageProps}/>
             </div>

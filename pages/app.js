@@ -3,6 +3,7 @@ import auth0 from '../lib/auth0';
 import router from 'next/router';
 import { db } from '../lib/db';
 import { distance } from '../lib/geo';
+import Header from '../components/Header'
 
 export default function App(props){
     useEffect(() => {
@@ -19,6 +20,7 @@ export default function App(props){
 
     return(
         <div>
+            <Header />
             <h1>Status próximos a você:</h1>
             <table>
                 { props.checkins.map(checkin => {

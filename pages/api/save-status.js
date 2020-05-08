@@ -18,6 +18,5 @@ export default async function saveStatus(req, res){
                 coordinates: new admin.firestore.GeoPoint(dados.coords.lat, dados.coords.long)
             }) 
     }   
-    console.log(req.body)
     res.send({ok:true})
 }
